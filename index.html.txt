@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的信仰見證路徑</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Microsoft JhengHei", sans-serif; background: linear-gradient(to bottom, #fffbeb, #fff7ed); min-height: 100vh; padding: 20px; line-height: 1.9; font-size: 20px; }
+.container { max-width: 580px; margin: 0 auto; }
+.card { background: white; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
+.hidden { display: none; }
+
+.header { padding: 30px; text-align: center; color: white; }
+.header-intro { background: linear-gradient(135deg, #f59e0b, #ea580c); }
+.header-game { background: linear-gradient(135deg, #f59e0b, #fb923c); }
+.header-A { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
+.header-B { background: linear-gradient(135deg, #f43f5e, #ec4899); }
+.header-C { background: linear-gradient(135deg, #10b981, #14b8a6); }
+
+.icon { font-size: 60px; margin-bottom: 12px; }
+.title { font-size: 32px; font-weight: bold; margin-bottom: 8px; }
+.subtitle { font-size: 20px; opacity: 0.9; }
+.content { padding: 28px; }
+
+.intro-text { text-align: center; color: #4b5563; margin-bottom: 24px; font-size: 20px; }
+.intro-highlight { color: #b45309; font-style: italic; font-size: 22px; }
+.desc-box { background: #fffbeb; border-radius: 14px; padding: 22px; margin-bottom: 26px; font-size: 20px; color: #92400e; }
+.desc-box p { margin-bottom: 12px; }
+.note { font-size: 18px; color: #777; text-align: center; margin-bottom: 22px; }
+
+.btn { width: 100%; padding: 20px; border: none; border-radius: 14px; font-size: 22px; font-weight: 600; cursor: pointer; }
+.btn-primary { background: #d97706; color: white; }
+.btn-disabled { background: #e5e7eb; color: #aaa; }
+
+.progress { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; font-size: 20px; color: #b45309; }
+.dots { display: flex; gap: 10px; }
+.dot { width: 16px; height: 16px; border-radius: 50%; background: #fde68a; }
+.dot-active { background: #f59e0b; }
+
+.situation { color: #374151; margin-bottom: 26px; font-size: 21px; }
+.choices { display: flex; flex-direction: column; gap: 16px; margin-bottom: 10px; }
+.choice { width: 100%; padding: 22px; border: 3px solid #e5e7eb; border-radius: 14px; background: white; text-align: left; font-size: 20px; color: #374151; cursor: pointer; }
+.choice-selected { border-color: #f59e0b; background: #fef3c7; }
+
+.feedback { margin-top: 22px; margin-bottom: 22px; padding: 22px; background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 14px; font-size: 20px; color: #0369a1; }
+
+.result-desc { color: #374151; margin-bottom: 24px; font-size: 20px; }
+.box { border-radius: 14px; padding: 22px; margin-bottom: 22px; }
+.box-A { background: #f3e8ff; }
+.box-B { background: #ffe4e6; }
+.box-C { background: #d1fae5; }
+.box-gray { background: #f9fafb; }
+.box-verse { background: #fffbeb; border: 2px solid #fcd34d; font-style: italic; }
+.box-share { background: #f0f9ff; border: 2px solid #bae6fd; }
+
+.box-title { font-weight: 600; margin-bottom: 12px; font-size: 21px; }
+.box-title-A { color: #7c3aed; }
+.box-title-B { color: #e11d48; }
+.box-title-C { color: #059669; }
+.box-title-gray { color: #374151; }
+.box-title-share { color: #0369a1; }
+
+.box-text { font-size: 19px; }
+.box-text-A { color: #6b21a8; }
+.box-text-B { color: #9f1239; }
+.box-text-C { color: #047857; }
+.box-text-gray { color: #4b5563; }
+.box-text-verse { color: #92400e; }
+.box-text-share { color: #0c4a6e; }
+
+.other-section { border-top: 2px solid #e5e7eb; padding-top: 22px; margin-bottom: 26px; }
+.other-title { font-weight: 600; color: #374151; margin-bottom: 12px; font-size: 20px; }
+.other-note { font-size: 18px; color: #666; margin-bottom: 18px; }
+.other-item { border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+.other-header { font-size: 20px; font-weight: 500; margin-bottom: 6px; }
+.other-desc { font-size: 18px; color: #4b5563; }
+
+.share-list { font-size: 19px; list-style: none; }
+.share-list li { margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div id="page-intro" class="card">
+    <div class="header header-intro">
+      <div class="icon">✨</div>
+      <div class="title">我的信仰見證路徑</div>
+    </div>
+    <div class="content">
+      <p class="intro-text">
+        以利亞在迦密山上宣告：<br>
+        <span class="intro-highlight">「耶和華是神！」</span>
+      </p>
+      <div class="desc-box">
+        <p>每個人見證神的方式都不一樣——有人透過禱告的生命，有人透過愛的關係，有人透過忠心的行動。</p>
+        <p>這五個情境將幫助你探索：神如何透過你獨特的方式，讓別人認識祂？</p>
+      </div>
+      <p class="note">沒有標準答案，每個選擇都是美好的</p>
+      <button class="btn btn-primary" id="btn-start">開始探索</button>
+    </div>
+  </div>
+
+  <div id="page-game" class="card hidden">
+    <div class="header header-game">
+      <div class="icon" id="game-icon">🌅</div>
+      <div class="title" id="game-title">安靜的清晨</div>
+    </div>
+    <div class="content">
+      <div class="progress">
+        <span id="game-progress">情境 1 / 5</span>
+        <div class="dots" id="game-dots"></div>
+      </div>
+      <p class="situation" id="game-situation"></p>
+      <div class="choices" id="game-choices"></div>
+      <div class="feedback hidden" id="game-feedback"></div>
+      <button class="btn btn-disabled" id="btn-next" disabled>下一題</button>
+    </div>
+  </div>
+
+  <div id="page-result" class="card hidden"></div>
+</div>
+
+<script>
+var DATA = {
+  scenes: [
+    { title: "安靜的清晨", icon: "🌅", situation: "忙碌的一天即將開始，你有一小段獨處的時間。這時候你通常會...", choices: [
+      { text: "先安靜禱告或讀經，把一天交託給神", type: "A", feedback: "在一天開始前先親近神，讓祂的話語成為你一天的力量。" },
+      { text: "一邊做事一邊默想，在行動中與神對話", type: "B", feedback: "在日常瑣事中與神同行，讓信仰融入生活的每個角落。" },
+      { text: "專心準備要做的事，心裡記念神的同在", type: "C", feedback: "在盡責中榮耀神，用忠心的態度見證信仰。" }
+    ]},
+    { title: "分享的時刻", icon: "💬", situation: "一位朋友正在經歷困難，向你傾訴。你會怎麼陪伴她？", choices: [
+      { text: "專心傾聽，適時分享神在你生命中的安慰", type: "A", feedback: "用生命見證神的信實，讓朋友從你的經歷中看見盼望。" },
+      { text: "陪她一起禱告，把重擔交給神", type: "B", feedback: "邀請朋友一同來到神面前，經歷禱告的力量。" },
+      { text: "先用實際行動幫助她，讓她感受關懷", type: "C", feedback: "用行動表達愛，正如雅各書所說：信心沒有行為是死的。" }
+    ]},
+    { title: "關係的張力", icon: "🤝", situation: "與家人或朋友之間出現了一些摩擦和誤會，你的心裡有些不舒服...", choices: [
+      { text: "先禱告求神軟化彼此的心，找機會和好", type: "A", feedback: "在衝突中先尋求神的幫助，讓和好成為見證。" },
+      { text: "主動關心對方，用愛來化解隔閡", type: "B", feedback: "效法基督主動的愛，不等對方先改變。" },
+      { text: "給彼此一些空間，等時機成熟再溝通", type: "C", feedback: "有時安靜等候也是智慧，讓神在當中預備人心。" }
+    ]},
+    { title: "服事的邀請", icon: "🙋", situation: "教會或團契邀請你參與一項服事，但你不確定自己能否勝任...", choices: [
+      { text: "禱告尋求神的心意，若有感動就願意嘗試", type: "A", feedback: "在服事中學習倚靠神，讓祂的能力在軟弱上顯得完全。" },
+      { text: "先了解需要什麼，評估自己能貢獻的部分", type: "C", feedback: "按著神給的恩賜忠心擺上，不勉強也不退縮。" },
+      { text: "雖然沒把握，但願意和同工一起配搭學習", type: "B", feedback: "在團隊中彼此扶持成長，體驗肢體生活的美好。" }
+    ]},
+    { title: "平凡的日常", icon: "🏠", situation: "在日復一日的生活中——買菜、做家事、照顧家人，你如何感受神的同在？", choices: [
+      { text: "在做事時默禱或唱詩，讓心思轉向神", type: "A", feedback: "在平凡中操練與神親近，讓每個時刻都成為敬拜。" },
+      { text: "用心把每件小事做好，當作服事主", type: "C", feedback: "如同歌羅西書所說：無論做什麼，都要從心裡做，像是給主做的。" },
+      { text: "在服事家人的過程中，體會神對我的愛", type: "B", feedback: "從付出與領受中更深認識神的愛，讓家成為見證的起點。" }
+    ]}
+  ],
+  paths: {
+    A: { name: "禱告親近型", icon: "🕯️", desc: "你習慣透過禱告和默想來親近神，在安靜中聆聽祂的聲音。你的信仰見證常常是從內在生命流露出來的平安與穩定。", strength: "你的安靜與穩定，能讓身邊的人感受到一種不一樣的平安。在這紛亂的世界，你的沉穩本身就是見證。", growth: "有時也可以嘗試更主動地分享神在你生命中的作為，讓別人有機會認識這位你所親近的神。", verse: "「你們要休息，要知道我是神。」——詩篇 46:10" },
+    B: { name: "關係連結型", icon: "💝", desc: "你喜歡在關係中經歷神，無論是與人同行或團隊服事，你都能感受到神的愛。你的信仰見證常常透過真誠的關懷和陪伴表達出來。", strength: "你的溫暖和真誠，讓人感受到被愛和被接納。很多人可能因為你的陪伴，而對信仰產生好奇。", growth: "記得也為自己保留一些安靜獨處的時間，單獨與神親近，讓你有更多可以分享給別人的。", verse: "「我們愛，因為神先愛我們。」——約翰一書 4:19" },
+    C: { name: "忠心行動型", icon: "🌿", desc: "你相信信仰要活出來，透過忠心做好每一件事來榮耀神。你的信仰見證常常展現在認真負責的態度和實際的幫助中。", strength: "你的可靠和踏實，讓人看見基督徒是說到做到的人。你的行動本身就在傳遞福音的信息。", growth: "在忙碌服事之餘，也記得停下來享受與神獨處的時光，讓做事不只是責任，更是從愛而發的回應。", verse: "「只是你們要行道，不要單單聽道。」——雅各書 1:22" }
+  }
+};
+
+var state = {
+  current: 0,
+  selected: -1,
+  counts: { A: 0, B: 0, C: 0 }
+};
+
+function $(id) { return document.getElementById(id); }
+
+function startGame() {
+  $("page-intro").classList.add("hidden");
+  $("page-game").classList.remove("hidden");
+  renderScene();
+}
+
+function renderScene() {
+  var scene = DATA.scenes[state.current];
+  $("game-icon").textContent = scene.icon;
+  $("game-title").textContent = scene.title;
+  $("game-progress").textContent = "情境 " + (state.current + 1) + " / 5";
+  $("game-situation").textContent = scene.situation;
+
+  var dotsHTML = "";
+  for (var i = 0; i < 5; i++) {
+    dotsHTML += "<div class='dot " + (i <= state.current ? "dot-active" : "") + "'></div>";
+  }
+  $("game-dots").innerHTML = dotsHTML;
+
+  var choicesHTML = "";
+  for (var j = 0; j < scene.choices.length; j++) {
+    choicesHTML += "<button class='choice' data-index='" + j + "'>" + scene.choices[j].text + "</button>";
+  }
+  $("game-choices").innerHTML = choicesHTML;
+
+  var btns = document.querySelectorAll(".choice");
+  for (var k = 0; k < btns.length; k++) {
+    btns[k].onclick = function() { selectChoice(parseInt(this.getAttribute("data-index"))); };
+  }
+
+  $("game-feedback").classList.add("hidden");
+  $("btn-next").disabled = true;
+  $("btn-next").className = "btn btn-disabled";
+  $("btn-next").textContent = state.current < 4 ? "下一題" : "看看我的路徑";
+  state.selected = -1;
+}
+
+function selectChoice(idx) {
+  state.selected = idx;
+  var btns = document.querySelectorAll(".choice");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].className = (i === idx) ? "choice choice-selected" : "choice";
+  }
+  var fb = DATA.scenes[state.current].choices[idx].feedback;
+  $("game-feedback").innerHTML = "💭 " + fb;
+  $("game-feedback").classList.remove("hidden");
+  $("btn-next").disabled = false;
+  $("btn-next").className = "btn btn-primary";
+}
+
+function nextScene() {
+  if (state.selected >= 0) {
+    var t = DATA.scenes[state.current].choices[state.selected].type;
+    state.counts[t]++;
+  }
+  if (state.current < 4) {
+    state.current++;
+    renderScene();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  $("page-game").classList.add("hidden");
+
+  var maxType = "A";
+  if (state.counts.B > state.counts[maxType]) maxType = "B";
+  if (state.counts.C > state.counts[maxType]) maxType = "C";
+
+  var r = DATA.paths[maxType];
+  var types = ["A", "B", "C"];
+
+  var othersHTML = "";
+  for (var i = 0; i < types.length; i++) {
+    var k = types[i];
+    if (k !== maxType) {
+      var p = DATA.paths[k];
+      var short = p.desc.split("。")[0] + "。";
+      othersHTML += "<div class='other-item box-" + k + "'>";
+      othersHTML += "<div class='other-header box-title-" + k + "'>" + p.icon + " " + p.name + "</div>";
+      othersHTML += "<div class='other-desc'>" + short + "</div>";
+      othersHTML += "</div>";
+    }
+  }
+
+  var html = "";
+  html += "<div class='header header-" + maxType + "'>";
+  html += "<div class='icon'>" + r.icon + "</div>";
+  html += "<div class='title'>" + r.name + "</div>";
+  html += "<div class='subtitle'>你的信仰見證風格</div>";
+  html += "</div>";
+  html += "<div class='content'>";
+  html += "<p class='result-desc'>" + r.desc + "</p>";
+  html += "<div class='box box-" + maxType + "'>";
+  html += "<div class='box-title box-title-" + maxType + "'>🌟 你的見證優勢</div>";
+  html += "<div class='box-text box-text-" + maxType + "'>" + r.strength + "</div>";
+  html += "</div>";
+  html += "<div class='box box-gray'>";
+  html += "<div class='box-title box-title-gray'>🌱 繼續成長的邀請</div>";
+  html += "<div class='box-text box-text-gray'>" + r.growth + "</div>";
+  html += "</div>";
+  html += "<div class='box box-verse'>";
+  html += "<div class='box-text box-text-verse'>" + r.verse + "</div>";
+  html += "</div>";
+  html += "<div class='other-section'>";
+  html += "<div class='other-title'>其他見證路徑</div>";
+  html += "<div class='other-note'>每個人都可能兼具不同的特質，認識其他路徑也能幫助我們更完整地見證神：</div>";
+  html += othersHTML;
+  html += "</div>";
+  html += "<div class='box box-share'>";
+  html += "<div class='box-title box-title-share'>💬 小組分享</div>";
+  html += "<ul class='share-list box-text-share'>";
+  html += "<li>• 你覺得這個結果符合你嗎？</li>";
+  html += "<li>• 最近有什麼經歷讓你感受到神透過你作見證？</li>";
+  html += "<li>• 你希望在哪方面更多經歷神的同在？</li>";
+  html += "</ul>";
+  html += "</div>";
+  html += "<button class='btn btn-primary' id='btn-restart'>重新探索</button>";
+  html += "</div>";
+
+  $("page-result").innerHTML = html;
+  $("page-result").classList.remove("hidden");
+  $("btn-restart").onclick = restart;
+}
+
+function restart() {
+  state.current = 0;
+  state.selected = -1;
+  state.counts = { A: 0, B: 0, C: 0 };
+  $("page-result").classList.add("hidden");
+  $("page-intro").classList.remove("hidden");
+}
+
+$("btn-start").onclick = startGame;
+$("btn-next").onclick = nextScene;
+</script>
+</body>
+</html>
